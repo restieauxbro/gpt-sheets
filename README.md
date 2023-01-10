@@ -1,6 +1,6 @@
 # GPT-3 for Google Sheets
 
-[![GPT-3 for Google Sheets](https://img.youtube.com/vi/Qq3q-lxCxoo/0.jpg)](https://www.youtube.com/watch?v=Qq3q-lxCxoo)
+[![GPT-3 for Google Sheets](https://media.giphy.com/media/DruTv6RJyScvjn4Xuk/giphy.gif)
 
 ## Introduction
 
