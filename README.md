@@ -27,6 +27,8 @@ This is a Google Sheets extension script that allows you to use GPT-3 from withi
 
  Perfect for expanding on your list of items to a maximum of about 20 items. Highlight the number of cells you want to add and click the menu item `Add to list`. The extension will generate text for each cell and add it to the list. 
 
+ <img src="/demo-gifs/Adding%20to%20list%20with%20GPT-3.gif?raw=true" width="400px">
+
  ![Adding to a list](https://jzkobrxiuflwbfcatllm.supabase.co/storage/v1/object/public/documentation/gifs/Adding%20to%20list%20with%20GPT-3.gif)
 
 
