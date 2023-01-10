@@ -53,6 +53,6 @@ This is a Google Sheets extension script that allows you to use GPT-3 from withi
 
  Sheets cells that contain a formula such as `=GPT()` will be re-run every time the sheet is opened. This means that if you have a whole sheet of cells that cost you money to run, you will be charged every time you open the sheet and your values will appear to change.
 
- To avoid this can ctrl + C the cell and then ctrl + shift + V to copy and paste the value only. This will prevent the cell from being re-run every time you open the sheet.
+ To avoid this you can ctrl + C and then ctrl + shift + V to copy and paste the values only. This will prevent the cells from being re-run every time you open the sheet.
 
  <img src="/demo-gifs/Making%20solid%20values.gif?raw=true">
