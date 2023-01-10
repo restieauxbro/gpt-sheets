@@ -1,6 +1,6 @@
 # GPT-3 for Google Sheets
 
-![GPT-3 for Google Sheets]([https://media.giphy.com/media/DruTv6RJyScvjn4Xuk/giphy.gif](https://jzkobrxiuflwbfcatllm.supabase.co/storage/v1/object/public/documentation/gifs/Adding%20to%20list%20with%20GPT-3.gif?t=2023-01-10T05%3A52%3A20.279Z))
+![GPT-3 for Google Sheets](https://jzkobrxiuflwbfcatllm.supabase.co/storage/v1/object/public/documentation/gifs/Adding%20to%20list%20with%20GPT-3.gif)
 
 ## Introduction
 
