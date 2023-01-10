@@ -10,6 +10,7 @@
  * @return Prompts GPT-3 to fill the cell.
  * @customfunction
  */
+
 async function GPT(input, max_tokens, model, temperature, stop) {
   try {
     const res = await _callAPI(input, { max_tokens, model, temperature, stop })
@@ -20,6 +21,8 @@ async function GPT(input, max_tokens, model, temperature, stop) {
     console.log(error.message)
   }
 }
+
+const API_KEY = "your-api-key";
 
 function _callAPI(prompt, { max_tokens, model, temperature, stop }) {
   const data = {
@@ -44,4 +47,89 @@ function _callAPI(prompt, { max_tokens, model, temperature, stop }) {
   );
   const returned = JSON.parse(response.getContentText())['choices'][0]['text'].trim()
   return returned;
+}
+
+// Add to list function
+// highlight a selection of partially filled cells horizontally and fill them in
+
+function gpt3Listing() {
+  constspreadsheet = SpreadsheetApp.getActive();
+  constrange = spreadsheet.getActiveRange();
+  constnum_rows = range.getNumRows();
+
+  constvals = []
+
+  for (consti = 1; i < num_rows + 1; i++) {
+    input_val = range.getCell(i, 1).getValue();
+    vals.push(input_val)
+  }
+  const existingVals = vals;
+  const res = callAPIList(promptify(vals))
+  const additions = parseResult(res)
+  console.log(res)
+  let fullList = existingVals
+    .concat(additions)
+    .filter(x => x !== "")
+    .map(x => [x])
+    .slice(0, num_rows)
+  if (fullList.length === num_rows) {
+    range.setValues(fullList)
+  }
+  else {
+    console.log(`${fullList.length} items`, `${num_rows} rows`);
+    const lengthOfEmptyCells = num_rows - fullList.length
+    fullList.push(...[...Array(lengthOfEmptyCells)].map(x => [""]))
+    console.log(fullList.length, fullList)
+    range.setValues(fullList)
+  }
+}
+
+function callAPIList(prompt) {
+  constdata = {
+    'prompt': prompt,
+    'max_tokens': 270,
+    'temperature': 1,
+  };
+  constoptions = {
+    'method': 'post',
+    'contentType': 'application/json',
+    'payload': JSON.stringify(data),
+    'headers': {
+      Authorization: 'Bearer ' + API_KEY,
+    },
+  };
+  response = UrlFetchApp.fetch(
+    'https://api.openai.com/v1/engines/text-davinci-003/completions',
+    options,
+  );
+  console.log(response.getContentText())
+  return JSON.parse(response.getContentText())['choices'][0]['text']
+}
+
+function promptify(arr) {
+  constfiltered = arr.filter(x => x !== "");
+  constlist = filtered.join('\n');
+  const str = `Add ${arr.length - filtered.length} additions to this list, separated by line breaks\n\n${list}\n\nNEW ADDITIONS:\n`
+  console.log(str)
+  return str
+}
+
+function parseResult(openaiStr) {
+  const array = openaiStr
+    .split("\n")
+    .filter(x => x !== "") // remove empty
+    .map(x => x.replace(/^\d+\.\s*/, '')) // remove any numbered bullets at the start
+
+  return array
+}
+
+
+// Menu function
+
+function onOpen() {
+  constui = SpreadsheetApp.getUi();
+  // Or DocumentApp or FormApp.
+  ui.createMenu('GPT-3')
+      .addItem('Add to list', 'gpt3Listing')
+      .addToUi();
 }
