@@ -27,7 +27,7 @@ This is a Google Sheets extension script that allows you to use GPT-3 from withi
 
  Perfect for expanding on your list of items to a maximum of about 20 items. Highlight the number of cells you want to add and click the menu item `Add to list`. The extension will generate text for each cell and add it to the list. 
 
- <img src="/demo-gifs/Adding%20to%20list%20with%20GPT-3.gif?raw=true" width="700px">
+ <img src="/demo-gifs/Adding%20to%20list%20with%20GPT-3.gif?raw=true">
 
 
 
@@ -35,7 +35,7 @@ This is a Google Sheets extension script that allows you to use GPT-3 from withi
 
  Send a prompt to GPT-3 and get a response. 
 
- <img src="/demo-gifs/=GPT.gif?raw=true" width="700px">
+ <img src="/demo-gifs/=GPT.gif?raw=true">
 
  The function takes the following arguments:
 
@@ -55,4 +55,4 @@ This is a Google Sheets extension script that allows you to use GPT-3 from withi
 
  To avoid this can ctrl + C the cell and then ctrl + shift + V to copy and paste the value only. This will prevent the cell from being re-run every time you open the sheet.
 
- <img src="/demo-gifs/Making%20solid%20values.gif?raw=true" width="700px">
+ <img src="/demo-gifs/Making%20solid%20values.gif?raw=true">
