@@ -53,13 +53,13 @@ function _callAPI(prompt, { max_tokens, model, temperature, stop }) {
 // highlight a selection of partially filled cells horizontally and fill them in
 
 function gpt3Listing() {
-  constspreadsheet = SpreadsheetApp.getActive();
-  constrange = spreadsheet.getActiveRange();
-  constnum_rows = range.getNumRows();
+  const spreadsheet = SpreadsheetApp.getActive();
+  const range = spreadsheet.getActiveRange();
+  const num_rows = range.getNumRows();
 
-  constvals = []
+  let vals = []
 
-  for (consti = 1; i < num_rows + 1; i++) {
+  for (var i = 1; i < num_rows + 1; i++) {
     input_val = range.getCell(i, 1).getValue();
     vals.push(input_val)
   }
@@ -85,12 +85,12 @@ function gpt3Listing() {
 }
 
 function callAPIList(prompt) {
-  constdata = {
+  const data = {
     'prompt': prompt,
     'max_tokens': 270,
     'temperature': 1,
   };
-  constoptions = {
+  const options = {
     'method': 'post',
     'contentType': 'application/json',
     'payload': JSON.stringify(data),
@@ -107,8 +107,8 @@ function callAPIList(prompt) {
 }
 
 function promptify(arr) {
-  constfiltered = arr.filter(x => x !== "");
-  constlist = filtered.join('\n');
+  const filtered = arr.filter(x => x !== "");
+  const list = filtered.join('\n');
   const str = `Add ${arr.length - filtered.length} additions to this list, separated by line breaks\n\n${list}\n\nNEW ADDITIONS:\n`
   console.log(str)
   return str
@@ -127,7 +127,7 @@ function parseResult(openaiStr) {
 // Menu function
 
 function onOpen() {
-  constui = SpreadsheetApp.getUi();
+  const ui = SpreadsheetApp.getUi();
   // Or DocumentApp or FormApp.
   ui.createMenu('GPT-3')
       .addItem('Add to list', 'gpt3Listing')
